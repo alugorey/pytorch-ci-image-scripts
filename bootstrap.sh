@@ -71,15 +71,15 @@ else
   gh auth setup-git
 fi
 
-# ---------- 3. claude auth ----------
-# 'claude auth status --json' prints {"loggedIn": true, ...} when authed.
-# grep for that literal so we don't need jq as a bootstrap dependency.
-if claude auth status --json 2>/dev/null | grep -q '"loggedIn":[[:space:]]*true'; then
-  echo "bootstrap: claude already authenticated"
-else
-  echo "bootstrap: launching 'claude auth login' (interactive)"
-  claude auth login
-fi
+## ---------- 3. claude auth ----------
+## 'claude auth status --json' prints {"loggedIn": true, ...} when authed.
+## grep for that literal so we don't need jq as a bootstrap dependency.
+#if claude auth status --json 2>/dev/null | grep -q '"loggedIn":[[:space:]]*true'; then
+#  echo "bootstrap: claude already authenticated"
+#else
+#  echo "bootstrap: launching 'claude auth login' (interactive)"
+#  claude auth login
+#fi
 
 echo
 echo "bootstrap: done."

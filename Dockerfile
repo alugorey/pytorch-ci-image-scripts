@@ -27,14 +27,14 @@ RUN sudo chmod +x /var/lib/jenkins/bootstrap.sh
 RUN ulimit -c 0
 
 # clone pytorch
-RUN cd /var/lib/jenkins && git clone --recursive https://github.com/pytorch/pytorch
+RUN cd /home && git clone --recursive https://github.com/pytorch/pytorch
 # delete last 3 lines that try to run sccache --print-stats since we removed sccache above
-RUN cd /var/lib/jenkins/pytorch && head -n -3 .ci/pytorch/build.sh > tmp.sh && chmod +x tmp.sh && mv tmp.sh .ci/pytorch/build.sh
+RUN cd /home/pytorch && head -n -3 .ci/pytorch/build.sh > tmp.sh && chmod +x tmp.sh && mv tmp.sh .ci/pytorch/build.sh
 # default pytorch build
-RUN cd /var/lib/jenkins/pytorch && MAX_JOBS= .ci/pytorch/build.sh
+RUN cd /home/pytorch && MAX_JOBS= .ci/pytorch/build.sh
 
 # git config
-RUN git config --global user.name "Jeff Daily" && git config --global user.email "jeff.daily@amd.com"
+RUN git config --global user.name "Andy Lugo" && git config --global user.email "andy.lugoreyes@amd.com"
 
 # install uv
 RUN pip install uv

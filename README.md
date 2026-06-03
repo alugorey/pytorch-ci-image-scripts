@@ -12,7 +12,7 @@ in.
 ./build.sh
 ```
 
-Produces `jeffdaily/pytorch:noble-rocm-7.2-py3-<YYYYMMDD>`. The base image
+Produces `alugorey/pytorch:noble-rocm-7.2-py3-<YYYYMMDD>`. The base image
 `HASH` is the tree SHA of `.ci/docker` on `pytorch/pytorch@main` (equivalent to
 `git rev-parse HEAD:.ci/docker`), fetched live from the GitHub API — no local
 PyTorch checkout required. Since upstream image builds can lag behind git by
@@ -26,5 +26,5 @@ Override the auto-detection with `HASH=<sha> ./build.sh`.
 - `build.sh` — resolves `HASH` + today's date, then builds
 - `bootstrap.sh` — copied into the image at `~/bootstrap.sh` for one-time
   container setup (from
-  [jeffdaily/claude-shared-public](https://github.com/jeffdaily/claude-shared-public))
+  [alugorey/claude-shared-public](https://github.com/alugorey/claude-shared-public))
 - `.vimrc` — copied into the image at `~/.vimrc`

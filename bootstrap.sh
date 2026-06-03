@@ -83,4 +83,4 @@ fi
 
 echo
 echo "bootstrap: done."
-echo "  Next: git clone https://github.com/jeffdaily/claude-shared.git ~/claude-shared"
+echo "  Next: git clone https://github.com/alugorey/claude-shared.git ~/claude-shared"

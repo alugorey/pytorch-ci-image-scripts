@@ -28,7 +28,7 @@ resolve_hash() {
 
 HASH=${HASH:-$(resolve_hash)}
 DATE=$(date +%Y%m%d)
-TAG="jeffdaily/pytorch:noble-rocm-7.2-py3-${DATE}"
+TAG="alugorey/pytorch:noble-rocm-7.2-py3-${DATE}"
 
 echo "HASH=${HASH}"
 echo "TAG=${TAG}"

@@ -1,6 +1,6 @@
-ARG HASH
-FROM ghcr.io/pytorch/ci-image:pytorch-linux-noble-rocm-n-py3-${HASH}
-
+#ARG HASH
+#FROM ghcr.io/pytorch/ci-image:pytorch-linux-noble-rocm-n-py3-${HASH}
+FROM alugorey/pytorch:rocm7.0.0_assert
 # undo the base pytorch CI image sccache wrappers for clang
 RUN cd /opt/rocm/llvm/bin && sudo mv original/clang . && sudo mv original/clang++ . && sudo rm -rf original
 RUN sudo rm -rf /opt/cache

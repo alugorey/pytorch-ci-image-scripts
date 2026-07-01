@@ -6,9 +6,10 @@ set -euo pipefail
 # the matching image. Walk back recent commits touching .ci/docker until one
 # has a published image. Override with HASH=<sha> in the env to skip detection.
 
-REPO="ghcr.io/pytorch/ci-image"
-TAG_PREFIX="pytorch-linux-noble-rocm-n-py3"
-
+#REPO="ghcr.io/pytorch/ci-image"
+#TAG_PREFIX="pytorch-linux-noble-rocm-n-py3"
+REPO="alugorey/pytorch"
+TAG_PREFIX="rocm7.0.0_assert"
 resolve_hash() {
     local commits commit sha
     commits=$(curl -fsSL "https://api.github.com/repos/pytorch/pytorch/commits?path=.ci/docker&per_page=10" \
@@ -28,7 +29,8 @@ resolve_hash() {
 
 HASH=${HASH:-$(resolve_hash)}
 DATE=$(date +%Y%m%d)
-TAG="alugorey/pytorch:noble-rocm-7.2-py3-${DATE}"
+#TAG="alugorey/pytorch:noble-rocm-7.2-py3-${DATE}"
+TAG="alugorey/pytorch:noble-rocm-7.0.0-py3-assert-${DATE}"
 
 echo "HASH=${HASH}"
 echo "TAG=${TAG}"
